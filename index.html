@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<style>html{color-scheme:light dark}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Directorio de Clubes PF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#F7F5F9;
+  --surface:#FFFFFF;
+  --surface-2:#FBFAFC;
+  --ink:#1C1622;
+  --ink-2:#514A5B;
+  --ink-3:#847C8F;
+  --line:#E4DFEA;
+  --line-2:#CFC7D9;
+  --accent:#5B2D8E;
+  --accent-ink:#FFFFFF;
+  --accent-soft:#F1EAF8;
+  --accent-line:#D8C7EC;
+  --flag:#8A6300;
+  --flag-soft:#FBF0D2;
+  --shadow:0 1px 2px rgba(28,22,34,.06), 0 8px 24px -12px rgba(28,22,34,.18);
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#141019;
+    --surface:#1C1723;
+    --surface-2:#221C2A;
+    --ink:#F2EEF6;
+    --ink-2:#B7AEC3;
+    --ink-3:#8A8095;
+    --line:#302838;
+    --line-2:#453A50;
+    --accent:#BE9CE8;
+    --accent-ink:#1C1723;
+    --accent-soft:#2A2136;
+    --accent-line:#43335A;
+    --flag:#E8C25C;
+    --flag-soft:#33290F;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141019;
+  --surface:#1C1723;
+  --surface-2:#221C2A;
+  --ink:#F2EEF6;
+  --ink-2:#B7AEC3;
+  --ink-3:#8A8095;
+  --line:#302838;
+  --line-2:#453A50;
+  --accent:#BE9CE8;
+  --accent-ink:#1C1723;
+  --accent-soft:#2A2136;
+  --accent-line:#43335A;
+  --flag:#E8C25C;
+  --flag-soft:#33290F;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Public Sans","Segoe UI",system-ui,sans-serif;
+  font-size:15px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px 72px}
+
+/* ---------- encabezado ---------- */
+.top{
+  border-bottom:1px solid var(--line);
+  background:var(--surface);
+}
+.top-in{max-width:1080px;margin:0 auto;padding:22px 20px 18px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 24px}
+h1{
+  font-family:"Archivo","Segoe UI",sans-serif;
+  font-weight:700;font-size:26px;letter-spacing:-.02em;
+  margin:0;line-height:1.1;text-wrap:balance;
+}
+.sub{color:var(--ink-3);font-size:13px;margin:4px 0 0}
+.top-meta{margin-left:auto;display:flex;gap:22px;align-items:flex-end}
+.stat{text-align:right}
+.stat b{
+  display:block;font-family:"IBM Plex Mono",monospace;font-weight:500;
+  font-size:22px;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums;
+}
+.stat span{font-size:10.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-3)}
+
+/* ---------- buscador ---------- */
+.search-bar{position:sticky;top:0;z-index:20;background:var(--paper);padding:16px 0 10px;border-bottom:1px solid var(--line)}
+.sf{position:relative;display:flex;align-items:center}
+.sf svg{position:absolute;left:14px;width:17px;height:17px;color:var(--ink-3);pointer-events:none}
+#q{
+  width:100%;padding:13px 92px 13px 40px;
+  font-family:inherit;font-size:16px;color:var(--ink);
+  background:var(--surface);border:1.5px solid var(--line-2);border-radius:var(--r);
+  box-shadow:var(--shadow);
+}
+#q::placeholder{color:var(--ink-3)}
+#q:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.kbd{
+  position:absolute;right:12px;display:flex;gap:6px;align-items:center;
+  font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);
+}
+.kbd kbd{border:1px solid var(--line-2);border-bottom-width:2px;border-radius:5px;padding:1px 6px;background:var(--surface-2)}
+#clear{display:none;border:0;background:none;color:var(--ink-3);cursor:pointer;font-size:18px;line-height:1;padding:2px 4px;font-family:inherit}
+#clear:hover{color:var(--ink)}
+
+.filters{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:10px}
+.fgroup{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.flabel{font-size:10.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-3);margin-right:2px}
+.chip{
+  font:inherit;font-size:12.5px;padding:4px 11px;border-radius:99px;cursor:pointer;
+  border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);
+}
+.chip:hover{border-color:var(--accent);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:500}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sel{position:relative;display:inline-flex;align-items:center}
+.sel::after{
+  content:"";position:absolute;right:12px;width:7px;height:7px;pointer-events:none;
+  border-right:1.6px solid var(--ink-3);border-bottom:1.6px solid var(--ink-3);
+  transform:rotate(45deg);margin-top:-3px;
+}
+.sel select{
+  appearance:none;-webkit-appearance:none;font:inherit;font-size:13px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line-2);border-radius:8px;
+  padding:5px 32px 5px 11px;cursor:pointer;max-width:200px;
+}
+.sel select:hover{border-color:var(--accent)}
+.sel select:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.sel.on select{border-color:var(--accent);background:var(--accent-soft);color:var(--accent);font-weight:500}
+.sel.on::after{border-color:var(--accent)}
+.sep{width:1px;height:18px;background:var(--line);margin:0 6px}
+.count{font-size:12.5px;color:var(--ink-3);margin-left:auto;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ---------- lista ---------- */
+.group-head{
+  display:flex;align-items:baseline;gap:10px;
+  margin:26px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--line);
+}
+.group-head h2{
+  font-family:"Archivo",sans-serif;font-size:12px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.11em;margin:0;color:var(--ink-2);
+}
+.group-head span{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3)}
+
+.rows{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.row{background:var(--surface)}
+.row.open{background:var(--surface-2)}
+.rbtn{
+  width:100%;display:grid;grid-template-columns:38px minmax(0,2.1fr) minmax(0,1.1fr) minmax(0,1fr) 62px 20px;
+  gap:14px;align-items:center;text-align:left;
+  padding:11px 14px;border:0;background:none;color:inherit;font:inherit;cursor:pointer;
+}
+.rbtn:hover{background:var(--accent-soft)}
+.rbtn:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.rnum{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.rname{font-family:"Archivo",sans-serif;font-weight:600;font-size:14.5px;letter-spacing:-.005em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rplace{font-size:13px;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rmgr{font-size:12.5px;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rid{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink-2);text-align:right;font-variant-numeric:tabular-nums}
+.caret{color:var(--ink-3);transition:transform .16s ease;justify-self:center}
+.row.open .caret{transform:rotate(90deg)}
+.row.open .rname{color:var(--accent)}
+mark{background:var(--flag-soft);color:inherit;border-radius:2px;padding:0 1px}
+
+.detail{padding:4px 14px 20px 52px;border-top:1px dashed var(--line-2)}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px 26px;margin-top:14px}
+.block h3{
+  font-family:"Archivo",sans-serif;font-size:10.5px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--accent);margin:0 0 7px;
+}
+.field{display:flex;gap:8px;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.field:last-child{border-bottom:0}
+.field dt{flex:0 0 96px;color:var(--ink-3);font-size:11.5px}
+.field dd{margin:0;flex:1;min-width:0;color:var(--ink);word-break:break-word}
+.field dd a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-line)}
+.field dd a:hover{border-bottom-color:var(--accent)}
+.mono{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-variant-numeric:tabular-nums}
+.copy{
+  border:0;background:none;cursor:pointer;color:var(--ink-3);padding:1px 4px;border-radius:4px;
+  font-size:10.5px;font-family:"Public Sans",sans-serif;letter-spacing:.04em;text-transform:uppercase;flex:0 0 auto;
+}
+.copy:hover{background:var(--accent-soft);color:var(--accent)}
+.copy.ok{color:var(--accent);font-weight:600}
+.missing{color:var(--ink-3);font-style:italic;font-size:12.5px}
+.hours{grid-column:1/-1}
+.hours p{margin:0;font-size:13.5px;color:var(--ink-2);max-width:70ch}
+.tag{
+  display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:2px 8px;border-radius:99px;
+  background:var(--flag-soft);color:var(--flag);font-weight:500;white-space:nowrap;
+}
+.tag.q{background:var(--accent-soft);color:var(--accent)}
+.empty{text-align:center;padding:56px 20px;color:var(--ink-3)}
+.empty b{display:block;font-family:"Archivo",sans-serif;font-size:16px;color:var(--ink-2);margin-bottom:6px}
+.foot{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-3);max-width:75ch}
+.foot a{color:var(--accent)}
+.foot code{font-family:"IBM Plex Mono",monospace;font-size:11.5px}
+
+@media (max-width:860px){
+  .rbtn{grid-template-columns:32px minmax(0,1.7fr) minmax(0,1fr) 58px 18px;gap:10px}
+  .rmgr{display:none}
+  .detail{padding-left:16px}
+}
+@media (max-width:600px){
+  .rbtn{grid-template-columns:minmax(0,1fr) 58px 18px;gap:8px}
+  .rnum,.rplace{display:none}
+  .top-meta{margin-left:0}
+  .count{width:100%;margin-left:0;text-align:right}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <div>
+      <h1>Directorio de Clubes PF</h1>
+      <p class="sub">Fitness Para Todos &middot; Infraestructura y Servicios TI</p>
+    </div>
+    <div class="top-meta">
+      <div class="stat"><b id="s-clubes">0</b><span>Clubes</span></div>
+      <div class="stat"><b id="s-estados">0</b><span>Estados</span></div>
+      <div class="stat"><b id="s-reg">0</b><span>Regionales</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="search-bar">
+    <div class="sf">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+             placeholder="Buscar club, ciudad, gerente, correo, teléfono o ID de Zenoti…"
+             aria-label="Buscar en el directorio">
+      <div class="kbd"><button id="clear" type="button" aria-label="Limpiar búsqueda">&times;</button><kbd>/</kbd></div>
+    </div>
+    <div class="filters">
+      <div class="fgroup">
+        <label class="flabel" for="f-reg">Regional</label>
+        <span class="sel"><select id="f-reg"><option value="">Todos</option></select></span>
+      </div>
+      <div class="fgroup">
+        <label class="flabel" for="f-est">Estado</label>
+        <span class="sel"><select id="f-est"><option value="">Todos</option></select></span>
+      </div>
+      <div class="sep"></div>
+      <div class="fgroup">
+        <span class="flabel">Orden</span>
+        <button class="chip" type="button" data-sort="num" aria-pressed="true">Núm.</button>
+        <button class="chip" type="button" data-sort="az" aria-pressed="false">A&ndash;Z</button>
+        <button class="chip" type="button" data-sort="est" aria-pressed="false">Estado</button>
+      </div>
+      <span class="count" id="count"></span>
+    </div>
+  </div>
+
+  <main id="list" aria-live="polite"></main>
+
+  <p class="foot">
+    Fuente: <b>Directorio de clubs.xlsx</b>, hoja <code>Información General</code>, en el OneDrive de
+    <code>dreamteam@fpt.com.mx</code> &rarr; <code>R. I. P\Marco Antonio Ortiz Soto\CARPETA ADMINISTRATIVA\</code>.
+    Corte del <b>10 de septiembre de 2026</b> (última modificación del original: 9-sep-2026).
+    Los datos marcados <span class="tag">incompletos</span> son celdas vacías en el Excel, no errores de esta vista.
+    Para cualquier cambio se edita el Excel y se regenera esta página &mdash; aquí no se guarda nada.
+  </p>
+</div>
+
+<script>
+const CLUBES = [{"num":"1","ciudad":"Queretaro","club":"PF PLAZA CIMATARIO","dirContrato":"Av. del Parque 1001 Subancla A Col. Ex Hacienda la Providencia CP. 76093, en Querétaro, Querétaro","m2":"2,480.55","mapa":"https://goo.gl/maps/puC6Y54aHdaTmB7d9","apertura":"16-03-22","gerente":"Ethel Martinez Franco","telGerente":"4423940329","subgerente":"Jose Angel Bustos Rodriguez","telSubgerente":"4428507320","correo":"pfcimatario@fpt.com.mx","telClub":"4429802300","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"Sin Costo","plazaNombre":"Claudia Valeria Huerta Oidor","plazaCorreo":"claudiavho@soriana.com","plazaTel":"442 749 2712","regional":"Eduardo","zenoti":"3274","idPF":"4302","sistema":"Zenoti","waze":"","tecnico":"Edvin Jacobo Camposeco  Geronimo","telTecnico":"5515312408","generacion":"2022","completado":[],"estado":"Querétaro","ciudadN":"Querétaro","razonSocial":"FPT (Fitness Para Todos)"},{"num":"2","ciudad":"Puebla","club":"PF PLAZA TORRECILLAS","dirContrato":"Bulevar Municipio Libre No. 555 Subancla D,  C.P 72474 Colonia Jardín","m2":"2,482.00","mapa":"https://goo.gl/maps/2xDjG75Wnfu9rHSs7","apertura":"14-04-22","gerente":"Jessica Merlene Escalona Cruz","telGerente":"2211059252","subgerente":"Raymundo Juarez Espinosa","telSubgerente":"222 335 3247","correo":"pftorrecillas@fpt.com.mx","telClub":"2229670900","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"Sin Costo","plazaNombre":"Heidi Ramirez","plazaCorreo":"Lic. Lisbeth Castelan Hermandez","plazaTel":"adminmall396@soriana.com - 222 548 0444","regional":"Salvador","zenoti":"3273","idPF":"4313","sistema":"","waze":"","tecnico":"Osvaldo Lopez Cruz","telTecnico":"2211597701","generacion":"2022","completado":[],"estado":"Puebla","ciudadN":"Puebla","razonSocial":""},{"num":"3","ciudad":"Queretaro","club":"PF PLAZA CANDILES","dirContrato":"Avenida Prolongación Candiles No. 204, Local SA-01 Colonia Camino Real, delegación san josé de los olveras,  Corregidora Querétaro, C.P. 76903","m2":"1,810.73","mapa":"https://goo.gl/maps/1gnjr6jYuTHTptyGA","apertura":"23-04-22","gerente":"Arturo Romero Avilés","telGerente":"5523177065","subgerente":"Andrés Iván Ramírez Casas","telSubgerente":"9513607004","correo":"pfcandiles@fpt.com.mx","telClub":"442 732-2000","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"Sin Costo","plazaNombre":"Roberto Gonzalez Arias","plazaCorreo":"rgonzaleza@conquer.com.mx","plazaTel":"4422993451 - 4426680724","regional":"Eduardo","zenoti":"3280","idPF":"4357","sistema":"","waze":"","tecnico":"Edvin Jacobo Camposeco  Geronimo","telTecnico":"5515312408","generacion":"2022","completado":["dirContrato"],"estado":"Querétaro","ciudadN":"Querétaro","razonSocial":""},{"num":"4","ciudad":"Cuernavaca","club":"PF GALERÍAS CUERNAVACA","dirContrato":"Autopista Mexico - Acapulco Km 87.5,  138 L38, Col Flores Magon, C.p., 62370, Delegación Miguel Hidalgo, Cuernavaca Morelos.","m2":"1789.21m2","mapa":"https://goo.gl/maps/iKDbC5hEdfjME86T8","apertura":"23-04-22","gerente":"Karina Janet Gallo Vergara","telGerente":"777 611 1919","subgerente":"Alejandra Lol-Be Bacab Rodriguez","telSubgerente":"7774286639","correo":"pfcuernavaca@fpt.com.mx","telClub":"777 980-2020","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"$10.00 * 120 Minutos","plazaNombre":"Adriana Acenet Galvan Ortiz","plazaCorreo":"aagalvano@liverpool.com.mx","plazaTel":"7771898827","regional":"Lorena","zenoti":"3279","idPF":"4426","sistema":"","waze":"Falta editar nombre","tecnico":"Hugo Adan Patiño Quiroz","telTecnico":"7771144918","generacion":"2022","completado":["subgerente","telSubgerente"],"estado":"Morelos","ciudadN":"Cuernavaca","razonSocial":""},{"num":"5","ciudad":"CDMX","club":"PF PASEO ACOXPA","dirContrato":"Calzada Acoxpa 430, Ancla 09, Colonia Vergel del Sur, Alcaldía Tlalpan, CP 14340, Ciudad de México.","m2":"3190m2","mapa":"https://goo.gl/maps/gLbGNWpJTZaRbMMeA","apertura":"30-05-22","gerente":"Claudia Sthephany Villa Gutiérrez","telGerente":"56 1379 2515","subgerente":"Izveidy Zuyino Gomora De Lucio","telSubgerente":"55 6676 2637","correo":"pfacoxpa@fpt.com.mx","telClub":"55 4172-2222","horario":"Lunes a Domingo de las 05:00 am a la 01:00 am","estacionamiento":"$10.00 * 120 Minutos","plazaNombre":"Salvador Castro","plazaCorreo":"scastro@grupoeurovi.com","plazaTel":"5561114395","regional":"Lorena","zenoti":"3288","idPF":"4309","sistema":"","waze":"si","tecnico":"Edgar Torres Gonzalez","telTecnico":"5624592249","generacion":"2022","completado":[],"estado":"CDMX","ciudadN":"CDMX","razonSocial":""},{"num":"6","ciudad":"Edo de Mex","club":"PF PLAZA SATELITE","dirContrato":"Circuito Centro Comercial No. 2251 Local S01, Colonia Ciudad Satélite , Naucalpan de Júarez, Estado de México.  c.p 53100","m2":"2,000.78","mapa":"https://goo.gl/maps/pnUfpbBUFwvvdsGD8","apertura":"06-06-22","gerente":"Adela Reyes Marquez","telGerente":"55 6327 4270","subgerente":"Gustavo Alejandro Garcilazo Bonilla","telSubgerente":"56 2535 0039","correo":"pfsatelite@fpt.com.mx","telClub":"55 4172-0700","horario":"Lunes a Domingo de las 06:00 am a la 01:00 am","estacionamiento":"$10.00 * 120 Minutos en los siguientes horarios: 6 am a 11 am y de 7 pm a 1 am.","plazaNombre":"Juan Luis Durán Director","plazaCorreo":"duran@sma.com.mx","plazaTel":"55 5572 1400","regional":"Atenas","zenoti":"3285","idPF":"4427","sistema":"","waze":"si - ajustar ubicación","tecnico":"Gustavo Martinez Olivares","telTecnico":"5519091170","generacion":"2022","completado":[],"estado":"Estado de México","ciudadN":"Estado de México","razonSocial":""},{"num":"7","ciudad":"Edo de Mex","club":"PF PLAZA SAN MARCOS","dirContrato":"AV. CHALMA ESQ. AUTOPISTA MEXICO QUERETARO S/N, LOTE 2 INTERIOR G-01, COLONIA: JARDINES DE LA HACIENDA SUR, CP 54720","m2":"2,030.76","mapa":"https://maps.app.goo.gl/K3pasRka4ArfsP9r7","apertura":"07-04-22","gerente":"Juan Manuel Ramirez Vazquez","telGerente":"5518234005","subgerente":"Mario Alberto Pereida Jimenez","telSubgerente":"5630996686","correo":"pfsanmarcos@fpt.com.mx","telClub":"5541708989","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"$6.00 * 120 Minutos","plazaNombre":"Gerardo Zorrilla","plazaCorreo":"gmartinez@grupogdi.net","plazaTel":"55 3566 9307","regional":"Atenas","zenoti":"3286","idPF":"4444","sistema":"","waze":"si","tecnico":"Gustavo Martinez Olivares","telTecnico":"5519091170","generacion":"2022","completado":[],"estado":"Estado de México","ciudadN":"Estado de México","razonSocial":""},{"num":"8","ciudad":"Puebla","club":"PF LA PAZ PUEBLA","dirContrato":"Calle 9 poniente no. 1901 Local A, Colonia Barrio de Santiago, Puebla  72403","m2":"1,890.00","mapa":"https://maps.app.goo.gl/kWWFWqwbR9zFaXa98","apertura":"19-11-22","gerente":"Luis Enrique Mendoza Alvarez","telGerente":"222 676 4689","subgerente":"Itzel Osorio Martínez","telSubgerente":"2211020685","correo":"pflapaz@fpt.com.mx","telClub":"2229758111","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"5 pesos por 120min.","plazaNombre":"Jessica Judith Villaseñor Albores","plazaCorreo":"jjvillasenor@gigante.com.mx","plazaTel":"55 8031 0877","regional":"Salvador","zenoti":"3312","idPF":"4310","sistema":"","waze":"si","tecnico":"Abdiel Cisneros Arrioja","telTecnico":"2223614486","generacion":"2022","completado":[],"estado":"Puebla","ciudadN":"Puebla","razonSocial":""},{"num":"9","ciudad":"Edo de Mex","club":"PF MULTIPLAZA VALLE DORADO","dirContrato":"Boulevard Manuel Ávila Camacho, numero de exterior 3, numero de interior 227, 83A, 83B, Colonia Valle Dorado, Tlalnepantla de Baz, México, C.P. 54020","m2":"2,333.09","mapa":"https://goo.gl/maps/e2rZ2mjHpTKG3mHH9","apertura":"17-12-22","gerente":"David Lopez de la Peña","telGerente":"5532675221","subgerente":"Irving Ruiz Venegas","telSubgerente":"5561108800","correo":"pfvalledorado@fpt.com.mx","telClub":"5590205000","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"5 pesos por 120min.","plazaNombre":"Rebeca Garcia Sánchez","plazaCorreo":"rgarcia@grupofrisa.com","plazaTel":"5510692651","regional":"Atenas","zenoti":"3314","idPF":"4540","sistema":"","waze":"Falta editar nombre","tecnico":"Gustavo Martinez Olivares","telTecnico":"5519091170","generacion":"2022","completado":[],"estado":"Estado de México","ciudadN":"Estado de México","razonSocial":""},{"num":"10","ciudad":"CDMX","club":"PF TLATELOLCO","dirContrato":"Calzada de la Ronda No 88 Subancla 1 Colonia Ex Hipódromo C.P. 06250 Cuauhtémoc Ciudad de Mexico;","m2":"2500m2","mapa":"https://maps.app.goo.gl/CX1cruyjn29gwrNfA","apertura":"09-02-23","gerente":"Edmundo Jimenez Estevez","telGerente":"55 3697 2567","subgerente":"Osleidy Valeria Ponciano Cedillo","telSubgerente":"583985899","correo":"pftlatelolco@fpt.com.mx","telClub":"5594178135","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"$5.00 * 120 Minutos","plazaNombre":"Juan Humberto Olguin Villamar","plazaCorreo":"humberto.soriana10@gmail.com","plazaTel":"5551492047","regional":"Lorena","zenoti":"3347","idPF":"4543","sistema":"Zenoti","waze":"Falta editar nombre","tecnico":"Armando Flores Juarez","telTecnico":"5529132004","generacion":"2023","completado":[],"estado":"CDMX","ciudadN":"CDMX","razonSocial":""},{"num":"11","ciudad":"CDMX","club":"PF ENCUENTRO OCEANIA","dirContrato":"Av. del Peñón 355 Local N3 y N4, Moctezuma 2da Secc, Venustiano Carranza, 15530 Ciudad de México, CDMX","m2":"2437.68m2","mapa":"https://maps.app.goo.gl/F9PLtT82vcz5KEqK8","apertura":"09-09-23","gerente":"Edder Javier Hernández Blasquez","telGerente":"777 502 6010","subgerente":"Lizbeth Margarita Flores Flores","telSubgerente":"5561789820","correo":"pfoceania@fpt.com.mx","telClub":"5590639797","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"6 pesos * 120min. (de las 6pm-10am)","plazaNombre":"Graciela Sanchez","plazaCorreo":"graciela.sanchez@pulsinmobiliario.com","plazaTel":"55 5407 4596","regional":"Lorena","zenoti":"3287","idPF":"4446","sistema":"","waze":"si","tecnico":"Armando Flores Juarez","telTecnico":"5529132004","generacion":"2023","completado":[],"estado":"CDMX","ciudadN":"CDMX","razonSocial":""},{"num":"12","ciudad":"Nuevo León","club":"PF LINDAVISTA","dirContrato":"Miguel Aleman 5000, Col. Libertad, Municipio de Guadalupe Nuevo León, C.P.67170","m2":"2,085.00","mapa":"https://maps.app.goo.gl/yDyKfaFZqNnmYAM27","apertura":"11-04-23","gerente":"Leonardo Chayane Ramos Garza","telGerente":"8116918678","subgerente":"Francisco Daniel Palacios Segovia","telSubgerente":"81 3111 4413","correo":"pflindavista@fpt.com.mx","telClub":"8185250321","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"Sin costo","plazaNombre":"Victor Martinez","plazaCorreo":"victor.imc20@gmail.com","plazaTel":"8124 661142","regional":"Jesus","zenoti":"3354","idPF":"4564","sistema":"","waze":"si","tecnico":"Pedro Infante Soriano","telTecnico":"","generacion":"2023","completado":[],"estado":"Nuevo León","ciudadN":"Monterrey","razonSocial":""},{"num":"13","ciudad":"Puebla","club":"PF SERVIPLAZA VILLA VERDE","dirContrato":"número oficial 5605, manzana número 1, de la calle Privada 18 “A” Oriente Local 7, Fraccionamiento Villa Verde, en la Ciudad de Puebla, Estado de Puebla C.P. 72303","m2":"1,956.00","mapa":"https://maps.app.goo.gl/DhQrnVwkq8sua7gM6","apertura":"11-04-23","gerente":"Vladimir Marcel Aparicio Flores","telGerente":"2221405161","subgerente":"José Abraham López Hernández","telSubgerente":"222 308 5226","correo":"pfvillaverde@fpt.com.mx","telClub":"2202000100","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"$5.00 * 120 Minutos","plazaNombre":"Jessica Judith Villaseñor Albores","plazaCorreo":"jjvillasenor@gigante.com.mx","plazaTel":"55 8031 0877","regional":"Salvador","zenoti":"3355","idPF":"4573","sistema":"","waze":"si","tecnico":"Abdiel Cisneros Arrioja","telTecnico":"2223614486","generacion":"2023","completado":[],"estado":"Puebla","ciudadN":"Puebla","razonSocial":""},{"num":"14","ciudad":"Edo de Mex","club":"PF TOLLOCAN","dirContrato":"Paseo Tollocan 600, Colonia Progreso , C.P.Municipio de Toluca, ME 50150","m2":"1,911.00","mapa":"https://maps.app.goo.gl/U4spXDTK3PJTrpsb6","apertura":"11-11-23","gerente":"","telGerente":"","subgerente":"Esmeralda Vazquez Sosa","telSubgerente":"7297101971","correo":"pftollocan@fpt.com.mx","telClub":"7229664516","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"$7.00 * 120 Minutos","plazaNombre":"Victor Martinez","plazaCorreo":"victor.imc20@gmail.com","plazaTel":"8124 661142","regional":"Atenas","zenoti":"3319","idPF":"4443","sistema":"","waze":"si","tecnico":"Jesus Mauricio Martinez Garcia","telTecnico":"7221396730","generacion":"2023","completado":[],"estado":"Estado de México","ciudadN":"Estado de México","razonSocial":""},{"num":"15","ciudad":"NL","club":"PF SANTA CATARINA","dirContrato":"Av. Manuel J. Clouthier 899-A, San Humberto CP: 66120, Santa Catarina","m2":"1,838.00","mapa":"https://goo.gl/maps/m95fnG8XfuHC5p1b6","apertura":"14-04-18","gerente":"Joel Carrillo Ovalle","telGerente":"8117596688","subgerente":"Ronaldo Maldonado","telSubgerente":"81 2875 9229","correo":"pfsantacatarina@fpt.com.mx","telClub":"8129325800","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"0%","plazaNombre":"","plazaCorreo":"inmobiliariavch@hotmail.com","plazaTel":"","regional":"Jesus","zenoti":"3098","idPF":"1938","sistema":"","waze":"si","tecnico":"Eloy Gilberto Guzman Tobias","telTecnico":"8126516424","generacion":"2023","completado":[],"estado":"Nuevo León","ciudadN":"Monterrey","razonSocial":"JEG México Bueno"},{"num":"16","ciudad":"NL","club":"PF LA ESTANZUELA","dirContrato":"Carretera Nacional 7877, La Estanzuela CP: 64988, Monterrey","m2":"4,424.00","mapa":"https://goo.gl/maps/WcZYxnSZLme58oNa8","apertura":"08-12-19","gerente":"Ramiro Sanchez Sanchez","telGerente":"81 3161 9078","subgerente":"Ramiro Sanchez","telSubgerente":"81 3161 9078","correo":"pflaestanzuela@fpt.com.mx","telClub":"8129562128","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"0%","plazaNombre":"","plazaCorreo":"dianapahs@soriana.com","plazaTel":"","regional":"Jesus","zenoti":"3164","idPF":"2528","sistema":"","waze":"si","tecnico":"Eloy Gilberto Guzman Tobias","telTecnico":"8126516424","generacion":"2023","completado":["subgerente","telSubgerente"],"estado":"Nuevo León","ciudadN":"Monterrey","razonSocial":""},{"num":"17","ciudad":"NL","club":"PF ARCADIA","dirContrato":"Av. Eloy Cavazos 3301-Suite 21, Camino Real CP: 67170, Guadalupe","m2":"3,000.00","mapa":"https://maps.app.goo.gl/6k3fBMfL7Ayyiszh7","apertura":"25-01-20","gerente":"Hector Andre Calderon Quintero","telGerente":"8184653749","subgerente":"Claudia Janeth Valdez Rentería","telSubgerente":"8119645140","correo":"pfarcadia@fpt.com.mx","telClub":"8132311418","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"0%","plazaNombre":"","plazaCorreo":"arcadia_365@outlook.com","plazaTel":"813 231 1418","regional":"Jesus","zenoti":"3206","idPF":"2595","sistema":"","waze":"si","tecnico":"Pedro Infante Soriano","telTecnico":"","generacion":"2023","completado":[],"estado":"Nuevo León","ciudadN":"Monterrey","razonSocial":"JEG México Bueno"},{"num":"18","ciudad":"NL","club":"PF EL MOLINO","dirContrato":"Av. Carlos Salinas de Gortari 801-Suite A114, (Sin nombre) CP: 66600, Apodaca","m2":"2,510.00","mapa":"https://goo.gl/maps/DchTDwSzaUUm58cZ9","apertura":"02-01-20","gerente":"Leonel Isaí Ramírez Zarate","telGerente":"8182724098","subgerente":"Teodoro Alejandro Villalobos","telSubgerente":"8993095932","correo":"pfelmolino@fpt.com.mx","telClub":"8132317785","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"0%","plazaNombre":"Hector Guajardo","plazaCorreo":"elmolinocondominioplaza@gmail.com","plazaTel":"","regional":"Jesus","zenoti":"3207","idPF":"2836","sistema":"","waze":"si","tecnico":"Pedro Infante Soriano","telTecnico":"","generacion":"2023","completado":[],"estado":"Nuevo León","ciudadN":"Monterrey","razonSocial":""},{"num":"19","ciudad":"Coahuila","club":"PF SANTA ISABEL","dirContrato":"Blv. Nazario Ortiz Garza 2060, Plaza Santa Isabel Local 19, Fracc. Tanque de la peña CP: 25203, Saltillo","m2":"2,510.00","mapa":"https://maps.app.goo.gl/U8kfXA31Mj9nAEqt5","apertura":"10-01-20","gerente":"Brenda Barragan Garcia","telGerente":"8125994043","subgerente":"Daniel Castellanos","telSubgerente":"8441024670","correo":"pfsantaisabel@fpt.com.mx","telClub":"8443789583","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"0%","plazaNombre":"","plazaCorreo":"admonsantaisabel@altiusmx.com","plazaTel":"","regional":"Jesus","zenoti":"3212","idPF":"2837","sistema":"","waze":"si","tecnico":"Juan Carlos Briones Morales","telTecnico":"8119856704","generacion":"2023","completado":[],"estado":"Coahuila","ciudadN":"Coahuila","razonSocial":""},{"num":"20","ciudad":"Puebla","club":"PF ANGELÓPOLIS","dirContrato":"Boulevar del Niño Poblano 2510 Local PH 1PA (PH uno A), Reserva Territorial Atlixcáyotl 72193 Puebla, Pue.","m2":"1,856.56","mapa":"https://maps.app.goo.gl/aZQxBpP86Piru8A49","apertura":"30-03-24","gerente":"Alfonso Pérez Goméz","telGerente":"2227947451","subgerente":"José Gabriel Palencia Fernández","telSubgerente":"2212064139","correo":"pfangelopolis@fpt.com.mx","telClub":"2202000111","horario":"Lunes a Domingo de las 05:00 am a la 01:00 am","estacionamiento":"Incremento escalonado. 1° año 5 pesos x 2h  2° año 6 pesos x 2h  3° año 7 pesos x 2h  4° año renegociar tarifa x 2h","plazaNombre":"Enrique Valdés","plazaCorreo":"enrique.valdes@angelopolispuebla.com.mx","plazaTel":"Ph. 222.303.0330 Ex. 808 | Mo. 222.588.23.32","regional":"Salvador","zenoti":"3357","idPF":"4312","sistema":"Zenoti","waze":"si","tecnico":"","telTecnico":"","generacion":"2024","completado":[],"estado":"Puebla","ciudadN":"Puebla","razonSocial":""},{"num":"21","ciudad":"Edo de Mex","club":"PF COACALCO","dirContrato":"Vía José López Portillo No. 338, Fraccionamiento Parque Residencial Coacalco 1ra Sección, Coacalco de Berriozabal, Estado de México. C.P. 55720","m2":"2,101.81","mapa":"https://maps.app.goo.gl/qGfYFtF2rmLdW5kYA","apertura":"30-03-24","gerente":"Victor Javier Pineda Lozano","telGerente":"4428513503","subgerente":"Jorge Hernández Álvarez","telSubgerente":"5612587521","correo":"pfcoacalco@fpt.com.mx","telClub":"5594178137","horario":"Lunes a Domingo de las 6am-12am","estacionamiento":"$5.00 * 120 Minutos","plazaNombre":"Noemi Uresti Martinez","plazaCorreo":"nuresti@ggi.com.mx","plazaTel":"55433 29030","regional":"Atenas","zenoti":"3356","idPF":"4597","sistema":"","waze":"Falta editar nombre","tecnico":"Estaban Adair Moreno Contreras","telTecnico":"5611681664","generacion":"2024","completado":[],"estado":"Estado de México","ciudadN":"Estado de México","razonSocial":"FPT (Fitness Para Todos)"},{"num":"22","ciudad":"Jalisco","club":"PF  PUNTO RIO NILO","dirContrato":"Av Río Nilo 7377, Local número SA-05/L-01/C-09/C-10, Lomas de La Soledad, 45403 Tonalá, Jal.","m2":"1,604.43","mapa":"https://maps.app.goo.gl/a1JJ5oGZXg8HqyXM8","apertura":"30-03-24","gerente":"Jazmin Isabel Rubio","telGerente":"3329998907","subgerente":"Salvador Elías Domínguez Gamiño","telSubgerente":"3344052013","correo":"pfrionilo@fpt.com.mx","telClub":"3333483434","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"Gratis","plazaNombre":"Claudia Flores Mejia","plazaCorreo":"claudia.flores@alteadesarrollos.com","plazaTel":"52 81 8880 4400 cel. 811916 8500","regional":"Eduardo","zenoti":"3366","idPF":"4314","sistema":"","waze":"si","tecnico":"Abner Ivan Franco Roman","telTecnico":"3314851772","generacion":"2024","completado":[],"estado":"Jalisco","ciudadN":"Guadalajara","razonSocial":"FPT (Fitness Para Todos)"},{"num":"23","ciudad":"CDMX","club":"PF ACUEDUCTO","dirContrato":"Avenida Luis Espinoza 160 Colonia Solidaridad Nacional. Gustavo A. Madero, C.P. 07268 Ciudad de México, CDMX.","m2":"1905.5m2","mapa":"https://maps.app.goo.gl/Ezo2aLVzH2eQVZ4C9","apertura":"30-03-24","gerente":"Jacquelin Chavez Castillo","telGerente":"5542749127","subgerente":"Luis Mauro Serrano Morales","telSubgerente":"5522876256","correo":"pfacueducto@fpt.com.mx","telClub":"5594178136","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"$5.00 * 120 Minutos","plazaNombre":"Victor Martinez","plazaCorreo":"victor.imc20@gmail.com","plazaTel":"8124 661142","regional":"Lorena","zenoti":"3365","idPF":"4637","sistema":"","waze":"Falta editar nombre","tecnico":"Estaban Adair Moreno Contreras","telTecnico":"5611681664","generacion":"2024","completado":[],"estado":"CDMX","ciudadN":"CDMX","razonSocial":""},{"num":"24","ciudad":"SLP","club":"PF THE PARK","dirContrato":"Boulevard Antonio Rocha Cordero número 157 Local S2 01 B en Nivel 00 Fraccionamiento Desarrollo del Pedregal, San Luis Potosí, San Luis Potosí, C.P. 78295","m2":"1,956.58","mapa":"https://maps.app.goo.gl/3utZwbZPxiW9KTXU7","apertura":"13-04-24","gerente":"Luis Carlos Valencia Saucedo","telGerente":"4445040803","subgerente":"Jairo Isaias Padilla Mejía","telSubgerente":"4441966126","correo":"pfthepark@fpt.com.mx","telClub":"4882260111","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"$6.00 u $8 * 120 Minutos","plazaNombre":"Luis Miguel Galvan","plazaCorreo":"lgalvan@thorurbana.com","plazaTel":"5541709747","regional":"Eduardo","zenoti":"3372","idPF":"4885","sistema":"","waze":"Falta editar horarios","tecnico":"Aaron Bertrand Sifuentes Martinez","telTecnico":"4441417168","generacion":"2024","completado":[],"estado":"San Luis Potosí","ciudadN":"San Luis Potosí","razonSocial":""},{"num":"25","ciudad":"VER","club":"PF JARDINES XALAPA","dirContrato":"Avenida Lázaro Cárdenas número 521, Interior AN1-04, Colonia Independencia, C.P. 91143, Xalapa-Enríquez, Veracruz de Ignacio de la Llave.","m2":"1,954.00","mapa":"https://maps.app.goo.gl/MWSph6xrEhpeGrMw5","apertura":"21-05-24","gerente":"Nestor Efrain Roque Fuentes","telGerente":"222 142 3365","subgerente":"Alondra Yarisbeth Martínez Martínez","telSubgerente":"229 256 0190","correo":"pfjardinesxalapa@fpt.com.mx","telClub":"2289805050","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"$5.00 * 120 Minutos","plazaNombre":"Ing. Jesús Escobar","plazaCorreo":"mantenimiento@paseojardines.com","plazaTel":"2283149202","regional":"Salvador","zenoti":"3373","idPF":"4921","sistema":"","waze":"Falta editar nombre y poner horarios","tecnico":"Josue Marquez Martinez","telTecnico":"2288266446","generacion":"2024","completado":[],"estado":"Veracruz","ciudadN":"Veracruz","razonSocial":""},{"num":"26","ciudad":"Edo de Mex","club":"PF CENTER PLAZAS","dirContrato":"Av. Hank Gonzalez 50, Local PA-02 Sección B del Fraccionamiento Valle de Anahuac, Municipio de Ecatepec de Morelos, Estado de México, 55210","m2":"2,109.53","mapa":"https://maps.app.goo.gl/5qn6zmVQNTnK9xxc6","apertura":"09-11-24","gerente":"Nadia Valeria Nuñez Correa","telGerente":"5547818589","subgerente":"Karen Juliana Martinez Robreño","telSubgerente":"5630631448","correo":"pfcenterplaza@fpt.com.mx","telClub":"5594178138","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"$5.00 * 120 Minutos","plazaNombre":"Sandra Cuevas","plazaCorreo":"administrador@centerplazas.mx","plazaTel":"+52 1 55 6096 7948","regional":"Atenas","zenoti":"3375","idPF":"4599","sistema":"","waze":"si","tecnico":"Juan Jesus Peralta Gonzalez","telTecnico":"5532766637","generacion":"2024","completado":["subgerente","telSubgerente"],"estado":"Estado de México","ciudadN":"Estado de México","razonSocial":""},{"num":"27","ciudad":"Queretaro","club":"PF ANTEA","dirContrato":"Carretera San Luis Potosí-Querétaro  12401, L 207  Colonia El Salitre, Ejido Jurica, C.P. 76127, Querétaro, Querétaro.","m2":"2,268.36","mapa":"https://maps.app.goo.gl/Mj2ka4TQfYUSe1da6","apertura":"13-09-24","gerente":"Maria Fernanda Mendoza Corona","telGerente":"4428507320","subgerente":"Alma Guadalupe Martinez Velazquez","telSubgerente":"4428012961","correo":"pfantea@fpt.com.mx","telClub":"4427322400","horario":"Lunes a Domingo de las 05:00 am a la 01:00 am","estacionamiento":"SIN COSTO * 120 Minutos","plazaNombre":"Rodrigo Romero","plazaCorreo":"rromero@antea.mx","plazaTel":"+52 1 442 450 1910","regional":"Eduardo","zenoti":"4841","idPF":"","sistema":"","waze":"Si","tecnico":"Edvin Jacobo Camposeco  Geronimo","telTecnico":"5515312408","generacion":"2024","completado":[],"estado":"Querétaro","ciudadN":"Querétaro","razonSocial":"FPT (Fitness Para Todos)"},{"num":"28","ciudad":"CDMX","club":"PF MIXCOAC","dirContrato":"Av. Revolución Número 780 SUBANCLA A, Colonia San Juan, Alcaldía Benito Juárez, Ciudad de México C.P. 03730.","m2":"2024.9m2","mapa":"https://maps.app.goo.gl/E1qLhHbX3UzfK9ow9","apertura":"19-10-24","gerente":"Miguel Agustín Villa Mendoza","telGerente":"5510065238","subgerente":"Angel Mauricio Prado Morales.","telSubgerente":"5532942388","correo":"pfmixcoac@fpt.com.mx","telClub":"55 9506 7373","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"5 pesos por 2 horas","plazaNombre":"Kate Casasola","plazaCorreo":"katecc@soriana.com","plazaTel":"+52 1 55 5969 1116","regional":"Lorena","zenoti":"3388","idPF":"4915","sistema":"","waze":"si","tecnico":"Ricardo Jimenez Solares","telTecnico":"9902082156","generacion":"2024","completado":[],"estado":"CDMX","ciudadN":"CDMX","razonSocial":""},{"num":"29","ciudad":"CDMX","club":"PF CUMBRES 1188","dirContrato":"Calzada De La Viga 1188, Colonia El Triunfo, CP 09430, Alcaldía Iztapalapa, Ciudad De México.","m2":"2138.6m2","mapa":"https://maps.app.goo.gl/fRqrWA9HjnRqSudu6","apertura":"15-11-24","gerente":"Metztli Alitzel Reyes Salgado","telGerente":"7298684238","subgerente":"Laura Elizabet Caballero Luna","telSubgerente":"5618796057","correo":"pfcumbreslaviga@fpt.com.mx","telClub":"55 9417 8139","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"5 pesos por 2 horas","plazaNombre":"Armando Blanco","plazaCorreo":"armandoblanco@acoma.mx","plazaTel":"+52 1 55 3335 8382","regional":"Lorena","zenoti":"3359","idPF":"4542","sistema":"","waze":"editado ( aparece en maps como cerrado.)","tecnico":"Ricardo Jimenez Solares","telTecnico":"9902082156","generacion":"2024","completado":[],"estado":"CDMX","ciudadN":"CDMX","razonSocial":""},{"num":"30","ciudad":"Edo de Mex","club":"PF CENTRO LAS AMERICAS","dirContrato":"Avenida Central esquina Primero de Mayo, Manzana 4, Lote 1 Colonia Las Américas, Municipio de Ecatepec de Morelos, Código Postal 55076, Estado de México.","m2":"1,590.30","mapa":"https://maps.app.goo.gl/bG92C112ev9ahbEp9","apertura":"12-07-24","gerente":"Martha Paola Vázquez Martínez","telGerente":"5544167246","subgerente":"Luis Angel Rodriguez Mejia","telSubgerente":"5613681079","correo":"pfcentrolasamericas@fpt.com.mx","telClub":"5595067474","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"10 pesos por 2h (tarifa de Walmart)","plazaNombre":"Hector Uriel García Plata","plazaCorreo":"hector.garcia@centrolasamericas.com","plazaTel":".55 1992 72 38","regional":"Atenas","zenoti":"3405","idPF":"4916","sistema":"","waze":"Falta editar nombre","tecnico":"Juan Jesus Peralta Gonzalez","telTecnico":"5532766637","generacion":"2024","completado":[],"estado":"Estado de México","ciudadN":"Estado de México","razonSocial":""},{"num":"31","ciudad":"LEÓN","club":"PF PUNTO LEÓN","dirContrato":"Lucrecia 57, Colonia Peñitas, CP 37180, León de los Aldama, Guanajuato.","m2":"1,940.14","mapa":"https://maps.app.goo.gl/UQn9i2otciZWb9iN8","apertura":"12-07-24","gerente":"Carlos  Manuel Gonzalez Barcenas","telGerente":"5591861344","subgerente":"Jose Antonio Ortiz Barcenas","telSubgerente":"5545834930","correo":"pfpuntoleon@fpt.com.mx","telClub":"477 965 9100","horario":"Lunes a Viernes de las 04:00 am a la 12:00 am Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"5 pesos por 2 horas","plazaNombre":"Kim Benítez","plazaCorreo":"adrianbenitez@inmobic.com","plazaTel":"722 839 2251","regional":"Eduardo","zenoti":"3404","idPF":"5078","sistema":"","waze":"Falta editar nombre","tecnico":"Alberto Rivera Palacios","telTecnico":"4772748523","generacion":"2024","completado":[],"estado":"Guanajuato","ciudadN":"León","razonSocial":""},{"num":"32","ciudad":"VER","club":"ANDAMAR","dirContrato":"Avenida Adolfo Ruiz Cortines 3500, Colonia Playa de Oro Mocambo, Municipio de Boca del Río, Veracruz, C.P. 94298.","m2":"2,143.00","mapa":"https://maps.app.goo.gl/22Lnw5W1Q7jpWWs6A","apertura":"21-12-24","gerente":"Erick  Santiago Espinoza Luna","telGerente":"2214015083","subgerente":"Janet Adriana Rosales Varela","telSubgerente":"2292079050","correo":"pfandamar@fpt.com.mx","telClub":"229 837 0900","horario":"Lunes a Domingo de las 05:00 am a la 01:00 am","estacionamiento":"8 pesos por 2 horas (6pm a 11am)","plazaNombre":"Rosa Bueno","plazaCorreo":"rbueno@andamar.com.mx","plazaTel":"+52 1 229 780 0940","regional":"Salvador","zenoti":"3402","idPF":"4950","sistema":"","waze":"si","tecnico":"Noe Felix Cruz Pucheta","telTecnico":"2293703405","generacion":"2024","completado":[],"estado":"Veracruz","ciudadN":"Veracruz","razonSocial":""},{"num":"33","ciudad":"VER","club":"LOS PINOS","dirContrato":"AV. Rafael Cuervo 60, Colonia Playa Linda, Municipio de Veracruz, Estado de Veracruz, C.P.91810","m2":"1,927.83","mapa":"https://maps.app.goo.gl/NE9CkhzznxME7PPr8","apertura":"21-12-24","gerente":"Jorge Ricardo Alarcón Romero","telGerente":"2211745217","subgerente":"Fernando Quioz Martinez","telSubgerente":"2295299039","correo":"pflospinos@fpt.com.mx","telClub":"229 737 0100","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"$0 x 2h - ($5 por 2 hr en caso de cobro)","plazaNombre":"Estefany Bautista Orea","plazaCorreo":"estefanybao@soriana.com","plazaTel":"+52 (81) 8329 9000 ext. 5103160 - Cel: 814 510 18 72","regional":"Salvador","zenoti":"4945","idPF":"","sistema":"","waze":"si","tecnico":"Noe Felix Cruz Pucheta","telTecnico":"2293703405","generacion":"2024","completado":[],"estado":"Veracruz","ciudadN":"Veracruz","razonSocial":""},{"num":"34","ciudad":"SLP","club":"PF GLORIETA","dirContrato":"Calle Plaza Huasteca, No. 101, Fracc. San Antonio, Municipio de Soledad de Graciano Sánchez, San Luis Potosí, C.P. 78435","m2":"2,016.00","mapa":"https://maps.app.goo.gl/61jY23gvwgoF2jbA9","apertura":"31-12-24","gerente":"Jonathan Gaitan Vargas","telGerente":"4441767661","subgerente":"Jazmin Cerda Ojeda","telSubgerente":"4446511402","correo":"pfglorieta@fpt.com.mx","telClub":"4882260200","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"Gratis por el momento","plazaNombre":"Jessica Villaseñor","plazaCorreo":"jjvillasenor@gigante.com.mx","plazaTel":"55 5269 8000","regional":"Eduardo","zenoti":"5914","idPF":"4914","sistema":"","waze":"si","tecnico":"Aaron Bertrand Sifuentes Martinez","telTecnico":"4441417168","generacion":"2024","completado":[],"estado":"San Luis Potosí","ciudadN":"San Luis Potosí","razonSocial":""},{"num":"35","ciudad":"Jalisco","club":"PF PLAZA DEL ANGEL","dirContrato":"Adolfo López Mateos Sur, numero 2077, Col. Jardines Plaza del Sol, C.P. 44510, Guadalajara, Jal.","m2":"2,000.25","mapa":"https://maps.app.goo.gl/FhhtW3M6snur2eoF9","apertura":"31-12-24","gerente":"Jose Antonio Esparza Hernandez","telGerente":"3313005032","subgerente":"Leslie Alejandra Segura Villalobos","telSubgerente":"3351074084","correo":"pfplazadelangel@fpt.com.mx","telClub":"3333483636","horario":"Lunes a Viernes de las 04:00 am a la 12:00 am Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"10 pesos por 2 horas","plazaNombre":"Maria Antonia Acevedo Garcia","plazaCorreo":"mariaaag@soriana.com","plazaTel":"271-120-5955","regional":"Eduardo","zenoti":"5163","idPF":"","sistema":"","waze":"si","tecnico":"Abner Ivan Franco Roman","telTecnico":"3314851772","generacion":"2024","completado":["tecnico","telTecnico"],"estado":"Jalisco","ciudadN":"Guadalajara","razonSocial":""},{"num":"36","ciudad":"MAZATLAN","club":"PF GRAN PLAZA MAZATLÁN","dirContrato":"Av. Reforma y Apolo s/n Zona “E” altos, Colonia Alameda, C.P. 82123, en Mazatlán, Sinaloa.","m2":"2,086.00","mapa":"https://maps.app.goo.gl/Ax4QjWMtnas5w27b9","apertura":"24 05 2025","gerente":"Ramon Eliseo Hernandez Noris","telGerente":"6692266900","subgerente":"Mario Gerardo Lopez Rivera","telSubgerente":"669 262 4880","correo":"pflagranplazamazatlan@fpt.com.mx","telClub":"6692266900","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"5 pesos por 2 horas","plazaNombre":"Israel Sandoval","plazaCorreo":"gerencialagranplaza@gmail.com","plazaTel":"+52 1 669 121 1493","regional":"Jesus","zenoti":"5193","idPF":"","sistema":"Zenoti","waze":"si","tecnico":"Hugo Edel Rodriguez Moreno","telTecnico":"6693269726","generacion":"2025","completado":[],"estado":"Sinaloa","ciudadN":"Mazatlán","razonSocial":"FPT (Fitness Para Todos)"},{"num":"37","ciudad":"CDMX","club":"PF ALTOLIVO","dirContrato":"Av Toluca 481, Olivar de los Padres, Álvaro Obregón, 01780 Ciudad de México, CDMX","m2":"2147m2","mapa":"https://maps.app.goo.gl/6UTgRXUTCzjqwPHQ9","apertura":"18-10-25","gerente":"Victor Manuel Ortiz Segundo","telGerente":"55 4621 3503","subgerente":"Mariel Escobedo Ocampo","telSubgerente":"744I69I629","correo":"pfaltolivo@fpt.com.mx","telClub":"55 9548 4040","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"Gratis por el momento","plazaNombre":"Luis Vega","plazaCorreo":"gerencia.olivo@giape.com.mx","plazaTel":"56 6993 6072","regional":"Lorena","zenoti":"5606","idPF":"","sistema":"","waze":"Registrado","tecnico":"Gaspar Tolama Santiso","telTecnico":"5545076140","generacion":"2025","completado":[],"estado":"CDMX","ciudadN":"CDMX","razonSocial":""},{"num":"38","ciudad":"GDL","club":"CELTA LOPEZ MATEOS","dirContrato":"Av. Periférico Sur 7887, Santa María Tequepexpan, Tlaquepaque, Jalisco, C.P. 45601","m2":"2,192m2","mapa":"https://maps.app.goo.gl/o8Dwfm3pd8DbF7NN9","apertura":"06-12-25","gerente":"Edgar Antonio Mora Hernandez","telGerente":"442 776 9774","subgerente":"Juan Pablo Garcia Camarena","telSubgerente":"3312721202","correo":"pfcelta@fpt.com.mx","telClub":"33 4757 2222","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"5 pesos por 2 horas","plazaNombre":"Omar Cardenas","plazaCorreo":"omancilla@lloydconstruccionesmx","plazaTel":"3332294053","regional":"Eduardo","zenoti":"4569","idPF":"","sistema":"","waze":"si","tecnico":"Salvador Jesus Martinez Flores","telTecnico":"3325358640","generacion":"2025","completado":[],"estado":"Jalisco","ciudadN":"Guadalajara","razonSocial":""},{"num":"39","ciudad":"Mérida","club":"HARBOR","dirContrato":"Prol. Paseo Montejo, Col. Vía Montejo, Mérida, Yuc. C.P. 97204","m2":"2,500.00","mapa":"https://maps.app.goo.gl/D5KvPj8MRayVCYZ6A","apertura":"13-12-25","gerente":"Maria del Carmen Villeda Hernández","telGerente":"9841506111","subgerente":"Manuel Felipe Corona Mateos","telSubgerente":"9994948222","correo":"pfharbor@fpt.com.mx","telClub":"99 9838 7575","horario":"24/5vAbrimos Lunes a las 5:00 AM y cerramos hasta el Sábado 01:00 AM, Sábados y Domingos de 6:00 AM a 11:00 pm.","estacionamiento":"No aplica","plazaNombre":"Abigail Raigosa Aguilar","plazaCorreo":"","plazaTel":"","regional":"Atenas","zenoti":"5614","idPF":"","sistema":"","waze":"","tecnico":"Rodrigo Guillermo Cicero Amaya","telTecnico":"9996002862","generacion":"2025","completado":[],"estado":"Yucatán","ciudadN":"Mérida","razonSocial":""},{"num":"40","ciudad":"Culiacán","club":"ZAPATA CULIACAN","dirContrato":"Boulevard Emiliano Zapata 2151, Colonia El Vallado, C.P. 80110, Culiacán Rosales, Sinaloa","m2":"2,052.20","mapa":"https://maps.app.goo.gl/bzn838QhBGVoYRFd9","apertura":"20-12-25","gerente":"JOSUE JARED SOTELO RAMON","telGerente":"6693339864","subgerente":"Abraham de Jesus Cabada Arizaga","telSubgerente":"6675061251","correo":"pfzapataculiacan@fpt.com.mx","telClub":"66 8980 4848","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"0%","plazaNombre":"Chantal Ramos","plazaCorreo":"admonymto28@gmail.com","plazaTel":"81 8187 7585","regional":"Jesus","zenoti":"5170","idPF":"","sistema":"","waze":"","tecnico":"Roldan Eduardo Ruiz Ontiveros","telTecnico":"6672439301","generacion":"2025","completado":[],"estado":"Sinaloa","ciudadN":"Culiacán","razonSocial":""},{"num":"41","ciudad":"GDL","club":"ESTADIO GUADALAJARA","dirContrato":"Calzada Independencia Nte. Número 2955 Colonia Rancho Nuevo, C.P. 44240, Guadalajara, Jalisco","m2":"1,370.39m2","mapa":"https://maps.app.goo.gl/akojBUF6AFr6dbW69","apertura":"20-12-25","gerente":"Beraly Anahi Alvarez Soria","telGerente":"55 2329 1632","subgerente":"Brian Alejandro Díaz Huerta","telSubgerente":"331401409","correo":"pfestadio@fpt.com.mx","telClub":"33 4757 2727","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"Gratis","plazaNombre":"Lorena Espinoza","plazaCorreo":"lorenaeem@soriana.com","plazaTel":"8141558223","regional":"Eduardo","zenoti":"5667","idPF":"5666","sistema":"","waze":"","tecnico":"Salvador Jesus Martinez Flores","telTecnico":"3325358640","generacion":"2025","completado":["subgerente","telSubgerente"],"estado":"Jalisco","ciudadN":"Guadalajara","razonSocial":""},{"num":"42","ciudad":"LEON","club":"PARQUE VERTICE","dirContrato":"Boulevard Río Mayo 6001, Colonia Sur Loma Hermosa, León, Guanajuato, C.P. 37530","m2":"2052.29m2","mapa":"https://maps.app.goo.gl/RnpxWbhWN3bCnYo37","apertura":"27-12-25","gerente":"Carlos Manuel Gonzalez Barcenas","telGerente":"5591861344","subgerente":"Patricia Estephania Chavez Garcia","telSubgerente":"4771401269","correo":"pfparquevertice@fpt.com.mx","telClub":"47 7965 9090","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"Sin Costo","plazaNombre":"Rodrigo Muñoz","plazaCorreo":"rmunoz@sustania.com.mx","plazaTel":"222 358 0660","regional":"Eduardo","zenoti":"5557","idPF":"","sistema":"","waze":"","tecnico":"Alberto Rivera Palacios","telTecnico":"4772748523","generacion":"2025","completado":["gerente","telGerente"],"estado":"Guanajuato","ciudadN":"León","razonSocial":""},{"num":"43","ciudad":"Cancún","club":"MALECON LAS AMERICAS","dirContrato":"Avenida Bonampak, Sm. 06, Mz. 01, lt.01, Benito Juárez, Quintana Roo, C.P. 77500","m2":"1,557m2","mapa":"https://maps.app.goo.gl/oCyd1DuAdeSP3Dsi8","apertura":"27-12-25","gerente":"Oscar Díaz Ramírez","telGerente":"2212800228","subgerente":"Maria del Rosario Cordoba Alcudia","telSubgerente":"9981085737","correo":"pfmaleconlasamericas@fpt.com.mx","telClub":"99 8674 1222","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"5 pesos por 2 horas","plazaNombre":"Kytzia Romero","plazaCorreo":"kromero@las-americas.com.mx","plazaTel":"9982940337","regional":"Atenas","zenoti":"5620","idPF":"","sistema":"","waze":"","tecnico":"Daniel Burgos Estrada","telTecnico":"7772603251","generacion":"2025","completado":[],"estado":"Quintana Roo","ciudadN":"Cancún","razonSocial":""},{"num":"44","ciudad":"GDL","club":"PUNTO SUR","dirContrato":"Av. Punto Sur 312, Punto Sur, 45640 Tlajomulco de Zúñiga, Jal.","m2":"1,759m2","mapa":"https://maps.app.goo.gl/YSBVvUobumPxnjRX6","apertura":"27-12-25","gerente":"Glenda Monserrat Ortiz Valle","telGerente":"3323515047","subgerente":"Fernanda Escaret Vega Peña","telSubgerente":"3334863894","correo":"pfpuntosur@fpt.com.mx","telClub":"33 4757 2000","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"6 pesos por 2 horas","plazaNombre":"Claudia Rivera","plazaCorreo":"claudia.rivera@puntosurgdl.com","plazaTel":"310256564","regional":"Eduardo","zenoti":"5719","idPF":"","sistema":"","waze":"","tecnico":"Irving Irak Aguayo Castro","telTecnico":"3310148947","generacion":"2025","completado":[],"estado":"Jalisco","ciudadN":"Guadalajara","razonSocial":""},{"num":"45","ciudad":"GDL","club":"GALERIAS GUADALAJARA","dirContrato":"Rafael Sanzio 55, Colonia La Estancia, Zapopan, Jalisco C.P. 45030","m2":"","mapa":"https://maps.app.goo.gl/bY6Ld8yF64m8gogZ7","apertura":"27-12-25","gerente":"Arturo Alejandro Prudencio Ortega","telGerente":"3317665316","subgerente":"Luis Oswaldo Arriaga Vazquez","telSubgerente":"3310198439","correo":"pfgalerias@fpt.com.mx","telClub":"33 4757 3000","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"2 HORAS GRATIS","plazaNombre":"","plazaCorreo":"","plazaTel":"","regional":"Eduardo","zenoti":"4568","idPF":"","sistema":"","waze":"","tecnico":"Irving Irak Aguayo Castro","telTecnico":"3310148947","generacion":"2025","completado":[],"estado":"Jalisco","ciudadN":"Guadalajara","razonSocial":""},{"num":"46","ciudad":"Acapulco","club":"MULTIPLAZA LAS PALMAS","dirContrato":"Blvd. de las Naciones 802, Granjas del Marqués, C.P. 39890 Acapulco de Juárez, Gro.","m2":"1,881.21M2","mapa":"https://maps.app.goo.gl/hk5aX4PM3U9HTzBb8","apertura":"27-12-25","gerente":"Jose Alberto Miranda Gonzalez","telGerente":"6643045716","subgerente":"Jennifer Lilian Rivera Joachin","telSubgerente":"7441021461","correo":"pflaspalmas@fpt.com.mx","telClub":"7446482222","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"0 PESOS POR 2 HORAS","plazaNombre":"Jazmin manjarrez parra","plazaCorreo":"iabautista@grupofrisa.com","plazaTel":"744 136 3752","regional":"Lorena","zenoti":"5781","idPF":"","sistema":"","waze":"","tecnico":"Jose Fermin Cruz Braulio","telTecnico":"7442742234","generacion":"2025","completado":[],"estado":"Guerrero","ciudadN":"Acapulco","razonSocial":""},{"num":"47","ciudad":"CDMX","club":"GRAN SUR","dirContrato":"Periferico Sur 5550, Pedregal de Carrasco, Coyoacán, 04700 Ciudad de México, CDMX","m2":"2072.44m2","mapa":"https://maps.app.goo.gl/XufR5282ahPV6aRq8","apertura":"27-12-25","gerente":"Berta Monica Xicotencatl Cuautle","telGerente":"5561102212","subgerente":"Abraham Sánchez Alvarado","telSubgerente":"5587938190","correo":"pfgransur@fpt.com.mx","telClub":"55 9548 4242","horario":"24/5 Abrimos Lunes a las 5:00 am y cerramos hasta el Sabado 01:00 am, Sabados y Domingos de 6:00 am a 11:00 pm","estacionamiento":"10 pesos por 3 horas","plazaNombre":"Ivan Flores","plazaCorreo":"iflores@grupogdi.net","plazaTel":"5532334830","regional":"Lorena","zenoti":"5784","idPF":"","sistema":"","waze":"","tecnico":"Edgar Torres Gonzalez","telTecnico":"5624592249","generacion":"2025","completado":[],"estado":"CDMX","ciudadN":"CDMX","razonSocial":""},{"num":"48","ciudad":"Mérida","club":"CANEK","dirContrato":"","m2":"","mapa":"","apertura":"","gerente":"Gustavo Alejandro Garcilazo Bonilla","telGerente":"56 4622 5141","subgerente":"","telSubgerente":"","correo":"pfcanek@fpt.com.mx","telClub":"","horario":"","estacionamiento":"","plazaNombre":"","plazaCorreo":"","plazaTel":"","regional":"Atenas","zenoti":"5673","idPF":"","sistema":"","waze":"","tecnico":"","telTecnico":"","generacion":"2026","completado":["correo"],"estado":"Yucatán","ciudadN":"Mérida","razonSocial":""},{"num":"49","ciudad":"Edo de Mex","club":"CUATRO CAMINOS","dirContrato":"","m2":"","mapa":"https://maps.app.goo.gl/NSj3aKxeV5ooBw9W7","apertura":"28-05-2026","gerente":"Brayan Cornelio Angulo Hernández","telGerente":"7298695282","subgerente":"Ismael Trujillo Durán","telSubgerente":"5538495146","correo":"pfcuatrocaminos@fpt.com.mx","telClub":"55 9548 4545","horario":"Lunes a Domingos de las 04:00 am a la 12:00 am","estacionamiento":"10 pesos por 2 horas","plazaNombre":"","plazaCorreo":"","plazaTel":"","regional":"Atenas","zenoti":"5690","idPF":"","sistema":"","waze":"","tecnico":"","telTecnico":"","generacion":"2026","completado":[],"estado":"Estado de México","ciudadN":"Estado de México","razonSocial":""},{"num":"50","ciudad":"CDMX","club":"Centro Santa Fé","dirContrato":"","m2":"","mapa":"","apertura":"","gerente":"Fabián Guerrero Almaraz","telGerente":"5632747861","subgerente":"Mauricio Eliuh Ramírez Antonio","telSubgerente":"5632938097","correo":"pfcentrosantafe@fpt.com.mx","telClub":"","horario":"","estacionamiento":"","plazaNombre":"","plazaCorreo":"","plazaTel":"","regional":"Lorena","zenoti":"4912","idPF":"","sistema":"","waze":"","tecnico":"","telTecnico":"","generacion":"2026","completado":[],"estado":"CDMX","ciudadN":"CDMX","razonSocial":""},{"num":"51","ciudad":"QRO","club":"EL REFUGIO","dirContrato":"","m2":"","mapa":"","apertura":"","gerente":"","telGerente":"","subgerente":"","telSubgerente":"","correo":"","telClub":"","horario":"","estacionamiento":"","plazaNombre":"","plazaCorreo":"","plazaTel":"","regional":"Eduardo","zenoti":"","idPF":"","sistema":"","waze":"","tecnico":"","telTecnico":"","generacion":"2026","completado":["regional"],"estado":"Querétaro","ciudadN":"Querétaro","razonSocial":""}];
+
+const DIAC={"á":"a","à":"a","ä":"a","â":"a","é":"e","è":"e","ë":"e","ê":"e","í":"i","ì":"i","ï":"i","î":"i","ó":"o","ò":"o","ö":"o","ô":"o","ú":"u","ù":"u","ü":"u","û":"u","ñ":"n","ç":"c"};
+const norm = s => (s||"").toString().toLowerCase().replace(/[à-ü]/g, m => DIAC[m] || m);
+const digits = s => (s||"").toString().replace(/\D/g,"");
+
+const CAMPOS = ["num","club","ciudad","ciudadN","estado","gerente","subgerente","correo","regional",
+                "zenoti","idPF","dirContrato","plazaNombre","plazaCorreo","tecnico","razonSocial","sistema"];
+
+CLUBES.forEach(c=>{
+  c._t = norm(CAMPOS.map(k=>c[k]).join(" "));
+  c._d = [c.telClub,c.telGerente,c.telSubgerente,c.telTecnico,c.plazaTel,c.zenoti,c.idPF].map(digits).join(" ");
+  c._faltan = ["correo","telClub","gerente","horario","dirContrato","zenoti"].filter(k=>!c[k]).length;
+});
+
+const state = {q:"", reg:"", est:"", sort:"num"};
+const $ = s => document.querySelector(s);
+const uniq = k => [...new Set(CLUBES.map(c=>c[k]).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es"));
+
+$("#s-clubes").textContent = CLUBES.length;
+$("#s-estados").textContent = uniq("estado").length;
+$("#s-reg").textContent = uniq("regional").length;
+
+function llenarSelect(id, clave, campo){
+  const sel = $(id);
+  uniq(campo).forEach(v=>{
+    const o = document.createElement("option");
+    o.value = v;
+    o.textContent = `${v} (${CLUBES.filter(c=>c[campo]===v).length})`;
+    sel.appendChild(o);
+  });
+  sel.addEventListener("change", ()=>{
+    state[clave] = sel.value;
+    sel.parentElement.classList.toggle("on", !!sel.value);
+    render();
+  });
+}
+llenarSelect("#f-reg","reg","regional");
+llenarSelect("#f-est","est","estado");
+
+document.querySelectorAll("[data-sort]").forEach(b=>{
+  b.addEventListener("click",()=>{
+    state.sort=b.dataset.sort;
+    document.querySelectorAll("[data-sort]").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));
+    render();
+  });
+});
+
+function filtrar(){
+  const terms = norm(state.q).split(/\s+/).filter(Boolean);
+  const num = digits(state.q);
+  return CLUBES.filter(c=>{
+    if(state.reg && c.regional!==state.reg) return false;
+    if(state.est && c.estado!==state.est) return false;
+    return terms.every(t=>{
+      if(c._t.includes(t)) return true;
+      const d = digits(t);
+      return d.length>=3 && c._d.includes(d);
+    }) || (num.length>=3 && c._d.includes(num));
+  });
+}
+
+function ordenar(a){
+  const s=[...a];
+  if(state.sort==="az") s.sort((x,y)=>x.club.localeCompare(y.club,"es"));
+  else if(state.sort==="est") s.sort((x,y)=> x.estado.localeCompare(y.estado,"es") || x.club.localeCompare(y.club,"es"));
+  else s.sort((x,y)=>(+x.num||999)-(+y.num||999));
+  // una coincidencia exacta de ID (Zenoti o Planet Fitness) encabeza los resultados
+  const id = digits(state.q);
+  if(id.length>=3) s.sort((x,y)=>
+    ((y.zenoti===id||y.idPF===id)?1:0) - ((x.zenoti===id||x.idPF===id)?1:0));
+  return s;
+}
+
+const esc = s => (s||"").replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+function hi(s){
+  s = (s||"").toString();
+  const terms = norm(state.q).split(/\s+/).filter(x=>x.length>1);
+  if(!terms.length) return esc(s);
+  const plano = norm(s);
+  const marcas = new Array(s.length).fill(false);
+  terms.forEach(term=>{
+    let i = plano.indexOf(term);
+    while(i>-1){ for(let k=i;k<i+term.length;k++) marcas[k]=true; i = plano.indexOf(term, i+1); }
+  });
+  let out="", abierto=false;
+  for(let i=0;i<s.length;i++){
+    if(marcas[i] && !abierto){ out+="<mark>"; abierto=true; }
+    if(!marcas[i] && abierto){ out+="</mark>"; abierto=false; }
+    out += esc(s[i]);
+  }
+  return out + (abierto?"</mark>":"");
+}
+
+function campo(label, valor, tipo){
+  if(!valor) return `<div class="field"><dt>${label}</dt><dd class="missing">sin capturar</dd></div>`;
+  const v = esc(valor);
+  let cuerpo = v;
+  if(tipo==="mail") cuerpo = `<a href="mailto:${v}">${hi(valor)}</a>`;
+  else if(tipo==="tel") cuerpo = `<a class="mono" href="tel:${digits(valor)}">${v}</a>`;
+  else if(tipo==="url") cuerpo = `<a href="${v}" target="_blank" rel="noopener">Abrir mapa &nearr;</a>`;
+  else if(tipo==="mono") cuerpo = `<span class="mono">${hi(valor)}</span>`;
+  else cuerpo = hi(valor);
+  const copiable = tipo && tipo!=="url";
+  return `<div class="field"><dt>${label}</dt><dd>${cuerpo}</dd>`+
+         (copiable?`<button class="copy" type="button" data-copy="${v}">copiar</button>`:"")+`</div>`;
+}
+
+function detalle(c){
+  const inc = c._faltan
+    ? `<span class="tag">${c._faltan} ${c._faltan===1?"dato":"datos"} sin capturar en el Excel</span>` : "";
+  const rs = c.razonSocial ? `<span class="tag q">${esc(c.razonSocial)}</span>` : "";
+  return `<div class="detail">
+    ${inc||rs ? `<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">${rs}${inc}</div>`:""}
+    <div class="dgrid">
+      <div class="block"><h3>Contacto del club</h3><dl style="margin:0">
+        ${campo("Correo",c.correo,"mail")}
+        ${campo("Teléfono",c.telClub,"tel")}
+        ${campo("Estacion.",c.estacionamiento)}
+      </dl></div>
+      <div class="block"><h3>Equipo</h3><dl style="margin:0">
+        ${campo("Gerente",c.gerente)}
+        ${campo("Tel. gerente",c.telGerente,"tel")}
+        ${campo("Subgerente",c.subgerente)}
+        ${campo("Tel. subger.",c.telSubgerente,"tel")}
+        ${campo("Regional",c.regional)}
+      </dl></div>
+      <div class="block"><h3>Sistemas</h3><dl style="margin:0">
+        ${campo("ID Zenoti",c.zenoti,"mono")}
+        ${campo("ID Planet Fitness",c.idPF,"mono")}
+        ${campo("Sistema",c.sistema)}
+      </dl></div>
+      <div class="block"><h3>Ubicación</h3><dl style="margin:0">
+        ${campo("Dirección",c.dirContrato)}
+        ${campo("Mapa",c.mapa,"url")}
+        ${campo("Superficie",c.m2 ? c.m2+" m²" : "","mono")}
+        ${campo("Apertura",c.apertura,"mono")}
+      </dl></div>
+      <div class="block"><h3>Administración de la plaza</h3><dl style="margin:0">
+        ${campo("Contacto",c.plazaNombre)}
+        ${campo("Correo",c.plazaCorreo,"mail")}
+        ${campo("Teléfono",c.plazaTel,"tel")}
+      </dl></div>
+      <div class="block"><h3>Mantenimiento</h3><dl style="margin:0">
+        ${campo("Técnico",c.tecnico)}
+        ${campo("Teléfono",c.telTecnico,"tel")}
+      </dl></div>
+      <div class="block hours"><h3>Horario de operación</h3>
+        <p>${c.horario ? hi(c.horario) : '<span class="missing">sin capturar</span>'}</p>
+      </div>
+    </div>
+  </div>`;
+}
+
+function fila(c){
+  const lugar = c.ciudadN===c.estado ? c.estado : `${c.ciudadN}, ${c.estado}`;
+  return `<div class="row" data-num="${c.num}">
+    <button class="rbtn" type="button" aria-expanded="false">
+      <span class="rnum">${esc(c.num)}</span>
+      <span class="rname">${hi(c.club)}</span>
+      <span class="rplace">${hi(lugar)}</span>
+      <span class="rmgr">${c.gerente ? hi(c.gerente) : '<span class="missing">sin gerente</span>'}</span>
+      <span class="rid">${c.zenoti ? hi(c.zenoti) : "—"}</span>
+      <svg class="caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+  </div>`;
+}
+
+function render(){
+  const res = ordenar(filtrar());
+  $("#count").textContent = res.length===CLUBES.length
+    ? `${CLUBES.length} clubes`
+    : `${res.length} de ${CLUBES.length} clubes`;
+  $("#clear").style.display = state.q ? "block" : "none";
+
+  if(!res.length){
+    $("#list").innerHTML = `<div class="empty"><b>Sin coincidencias</b>
+      Prueba con el nombre del club, la ciudad, el gerente o el ID de Zenoti.</div>`;
+    return;
+  }
+  let html="";
+  if(state.sort==="est"){
+    let actual=null;
+    res.forEach(c=>{
+      if(c.estado!==actual){
+        if(actual!==null) html+="</div>";
+        actual=c.estado;
+        const n=res.filter(x=>x.estado===actual).length;
+        html+=`<div class="group-head"><h2>${esc(actual)}</h2><span>${n}</span></div><div class="rows">`;
+      }
+      html+=fila(c);
+    });
+    html+="</div>";
+  } else {
+    html = `<div class="group-head"><h2>${state.q||state.reg||state.est ? "Resultados" : "Todos los clubes"}</h2><span>${res.length}</span></div>`
+         + `<div class="rows">${res.map(fila).join("")}</div>`;
+  }
+  $("#list").innerHTML = html;
+}
+
+$("#list").addEventListener("click", e=>{
+  const cp = e.target.closest(".copy");
+  if(cp){
+    navigator.clipboard?.writeText(cp.dataset.copy).then(()=>{
+      cp.textContent="copiado"; cp.classList.add("ok");
+      setTimeout(()=>{cp.textContent="copiar"; cp.classList.remove("ok");},1400);
+    }).catch(()=>{});
+    return;
+  }
+  const b = e.target.closest(".rbtn");
+  if(!b) return;
+  const row = b.parentElement;
+  const abierto = row.classList.contains("open");
+  if(abierto){
+    row.classList.remove("open");
+    b.setAttribute("aria-expanded","false");
+    row.querySelector(".detail")?.remove();
+  } else {
+    const c = CLUBES.find(x=>x.num===row.dataset.num);
+    row.classList.add("open");
+    b.setAttribute("aria-expanded","true");
+    row.insertAdjacentHTML("beforeend", detalle(c));
+  }
+});
+
+let t;
+$("#q").addEventListener("input", e=>{
+  state.q = e.target.value;
+  clearTimeout(t); t=setTimeout(render,90);
+});
+$("#clear").addEventListener("click", ()=>{ $("#q").value=""; state.q=""; render(); $("#q").focus(); });
+
+document.addEventListener("keydown", e=>{
+  if(e.key==="/" && document.activeElement!==$("#q")){ e.preventDefault(); $("#q").focus(); $("#q").select(); }
+  if(e.key==="Escape" && document.activeElement===$("#q")){ $("#q").value=""; state.q=""; render(); }
+});
+
+render();
+</script>
+
+</body>
+</html>
